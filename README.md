@@ -76,6 +76,7 @@ We created dedicated console commands to manage the system manually or via cron.
 4.  **Run Migrations**:
     ```bash
     php artisan migrate
+    php artisan key:gen
     ```
 
 ### Running the Scheduler
@@ -86,7 +87,7 @@ php artisan schedule:work
 
  
 ### Testing the UI
-Visit the application in your browser (e.g., `http://localhost:8000/news`).
+Visit the application in your browser (e.g., `http://localhost:8000/`).
 - **Dashboard**: View latest news with a modern glassmorphism UI.
 - **Real-time Logs**: View the API request logs directly on the page.
 - **Controls**: Switch countries to see auto-fetching and caching in action.
