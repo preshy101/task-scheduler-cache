@@ -26,19 +26,10 @@ class NewsApiService
         try {
             // $q, $sources, $country, $category, $page_size, $page
             $response = $this->newsApi->getTopHeadlines(null, null, $country);
-            
-            // The library returns an object, we need to convert it to array for consistency
-            // or just use it as object. The previous code expected array access $data['status'].
-            // Let's coerce it to array to be safe and consistent with previous behavior.
+
             $data = (array) $response;
-            
-            // When cast to array, the properties become keys. 
-            // However, nested objects (like articles) might still be objects.
-            // A simple json decode/encode is the cleanest way to ensure full array structure if needed,
-            // but let's see. The frontend expects 'status', 'articles'.
-            // The library returns the raw JSON decoded as object.
-            
-            // Let's do a full conversion to ensure deep array structure if the frontend relies on arrays
+
+            // conversion to associative array
             $data = json_decode(json_encode($response), true);
 
             // Only cache successful responses
@@ -52,7 +43,7 @@ class NewsApiService
 
         } catch (\Exception $e) {
             \Illuminate\Support\Facades\Log::error("NewsAPI Request Exception: " . $e->getMessage());
-            
+
             // Return error structure compatible with frontend
             return [
                 'status' => 'error',
