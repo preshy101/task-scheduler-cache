@@ -87,7 +87,7 @@ php artisan schedule:work
 
  
 ### Testing the UI
-Visit the application in your browser (e.g., `http://localhost:8000/`).
+Visit the application in your browser (e.g., `http://localhost:8000/news`).
 - **Dashboard**: View latest news with a modern glassmorphism UI.
 - **Real-time Logs**: View the API request logs directly on the page.
 - **Controls**: Switch countries to see auto-fetching and caching in action.
